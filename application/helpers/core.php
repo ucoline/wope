@@ -75,6 +75,26 @@ function include_theme_file($file = false)
     }
 }
 
+// Include view
+function get_view($file = false, $data = array(), $view = false)
+{
+    $inc = $file . '.php';
+
+    if (is_file($inc)) {
+        if ($data && is_array($data)) {
+            extract($data);
+        }
+
+        if ($view) {
+            ob_start();
+            include $inc;
+            return ob_get_clean();
+        } else {
+            include $inc;
+        }
+    }
+}
+
 // Include admin view
 function admin_view($file = false, $data = array(), $view = false)
 {
@@ -96,38 +116,25 @@ function theme_view($file = false, $data = array(), $view = false)
     return get_view($inc, $data, $view);
 }
 
+// Include theme layout
+function theme_layout($file = false, $data = array(), $view = false)
+{
+    $inc = theme_path('layouts/'. $file);
+    return get_view($inc, $data, $view);
+}
+
 // Include theme partial
-function get_partial($file = false, $data = array(), $view = false)
+function theme_partial($file = false, $data = array(), $view = false)
 {
     $inc = theme_path('partials/'. $file);
     return get_view($inc, $data, $view);
 }
 
 // Include theme section
-function get_section($file = false, $data = array(), $view = false)
+function theme_section($file = false, $data = array(), $view = false)
 {
     $inc = theme_path('sections/'. $file);
     return get_view($inc, $data, $view);
-}
-
-// Include view
-function get_view($file = false, $data = array(), $view = false)
-{
-    $inc = $file . '.php';
-
-    if (is_file($inc)) {
-        if ($data && is_array($data)) {
-            extract($data);
-        }
-
-        if ($view) {
-            ob_start();
-            include $inc;
-            return ob_get_clean();
-        } else {
-            include $inc;
-        }
-    }
 }
 
 // Check cli mode

@@ -1,6 +1,6 @@
 {
     "name": "ucolabs/wope",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Wope - Modern Wordpress Starter Theme",
     "type": "wordpress-theme",
     "keywords": ["wordpress", "theme", "starter theme", "wope"],
@@ -8,7 +8,8 @@
     "authors": [
         {
             "name": "Ucolabs",
-            "email": "hello@ucolabs.com"
+            "email": "hello@ucolabs.com",
+            "homepage": "https://www.ucolabs.com",
         }
     ],
     "autoload": {
