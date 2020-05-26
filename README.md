@@ -14,7 +14,7 @@
 
 ## Features & Documentation
 
-[Full вocumentation](https://github.com/ucolabs/wope/wiki/01.-Home)
+[Full documentation](https://github.com/ucolabs/wope/wiki/01.-Home)
 
 [Overview](https://github.com/ucolabs/wope/wiki/02.-Overview)
 
