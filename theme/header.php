@@ -15,7 +15,6 @@
   wp_enqueue_style('main-style', theme_url('css/main.min.css'), false, '1.0.0');
   wp_enqueue_style('bootstrap-css', libs_url('bootstrap/css/bootstrap.min.css'), false, '1.0.0');
   wp_enqueue_style('fancybox-css', libs_url('fancybox/jquery.fancybox.min.css'), false, '1.0.0');
-  wp_enqueue_style('felkit-css', libs_url('felkit/styles.css'), false, '1.0.0');
   wp_enqueue_style('notify-css', libs_url('notify/jquery.notify.min.css'), false, '1.0.0');
   wp_enqueue_style('owl-carousel-css', libs_url('owl-carousel/assets/owl.carousel.min.css'), false, '1.0.0');
 

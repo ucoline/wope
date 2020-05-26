@@ -7,7 +7,6 @@
 <!--- jQuery & JS Scripts --->
 <script src="<?= libs_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
 <script src="<?= libs_url('fancybox/jquery.fancybox.min.js'); ?>"></script>
-<script src="<?= libs_url('felkit/jquery.scripts.js'); ?>"></script>
 <script src="<?= libs_url('notify/jquery.notify.min.js'); ?>"></script>
 <script src="<?= libs_url('owl-carousel/owl.carousel.min.js'); ?>"></script>
 
