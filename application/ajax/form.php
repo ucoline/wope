@@ -31,7 +31,7 @@ if ($type == 'contact-form' && $verify_nonce) {
     } else if (empty($recaptcha)) {
         $output['msg'] = lexicon('form_error_recaptcha');
     } else {
-        $recaptcha_secret_key = get_option('recaptcha_secret_key');
+        $recaptcha_secret_key = Theme::get_option('recaptcha_secret_key');
         $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='. $recaptcha_secret_key .'&response='.$recaptcha);
         $responseData = json_decode($verifyResponse);
 
@@ -44,8 +44,8 @@ if ($type == 'contact-form' && $verify_nonce) {
                 'message' => $message,
             );
 
-            $to = 'info@teknorot.com';
-            $subject = 'İletişim Formu: '. $subject;
+            $to = 'info@domain.com';
+            $subject = 'Contact form: '. $subject;
             $body = theme_view('inc/mailing/contact-form', $args, true);
             $headers = array('Content-Type: text/html; charset=UTF-8');
 

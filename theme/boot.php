@@ -44,7 +44,7 @@ if ($is_logged_in && is_admin()) {
 
 // Ajax action
 add_action('init', function () {
-    if (input_post('xaction') || input_get('xr')) {
+    if (input_post('ajax') || input_get('xr')) {
         include_app_file('ajax/router');
         exit();
     }
@@ -53,6 +53,5 @@ add_action('init', function () {
 // Template include filter
 // add_action('template_include', function ($original_template) {
 //     App::template_router();
-
 //     return $original_template;
 // });

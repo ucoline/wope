@@ -11,15 +11,12 @@
 class App
 {
     // Page links
-    public static function page_links($type)
+    public static function page_link($type)
     {
         $pages = array(
-            'contacts' => 313,
-            'comparsion_page' => 953,
-            'inquiry_page' => 957,
-            'recently_viewed_products' => 962,
-            'catalog' => 38,
-            'new_products' => 582,
+            'about' => 1,
+            'services' => 2,
+            'contacts' => 3,
         );
 
         if (isset($pages[$type])) {
