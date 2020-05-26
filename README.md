@@ -1,5 +1,5 @@
 # Wope - starter theme for wordpress
-📦 Modern wordpress theme development
+📦 A modern wordpress starter theme
 
 🧪 Ready to use models and libs
 
