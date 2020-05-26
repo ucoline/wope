@@ -1,4 +1,4 @@
-# Wope - starter theme for wordpress
+# Wope - Starter theme for wordpress
 📦 A modern wordpress starter theme
 
 🧪 Ready to use models and libs
@@ -14,7 +14,7 @@
 
 ## Features & Documentation
 
-[Full Documentation](https://github.com/ucolabs/wope/wiki/01.-Home)
+[Full вocumentation](https://github.com/ucolabs/wope/wiki/01.-Home)
 
 [Overview](https://github.com/ucolabs/wope/wiki/02.-Overview)
 
