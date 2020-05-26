@@ -14,8 +14,6 @@
 
 ## Features & Documentation
 
-[Overview](https://github.com/ucolabs/wope/wiki/02.-Overview)
-
 [Installation](https://github.com/ucolabs/wope/wiki/03.-Installation)
 
 [Full Documentation](https://github.com/ucolabs/wope/wiki/01.-Home)
