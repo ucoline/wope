@@ -9,7 +9,7 @@
         {
             "name": "Ucolabs",
             "email": "hello@ucolabs.com",
-            "homepage": "https://www.ucolabs.com",
+            "homepage": "https://www.ucolabs.com"
         }
     ],
     "autoload": {
