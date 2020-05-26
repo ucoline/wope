@@ -1,0 +1,7 @@
+.fk-tab-item {
+  display: none;
+}
+
+.fk-tab-item.active {
+  display: block;
+}

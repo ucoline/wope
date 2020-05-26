@@ -1,0 +1,22 @@
+{
+    "name": "ucolabs/wope",
+    "description": "Wope - Modern Wordpress Starter Theme",
+    "authors": [
+        {
+            "name": "Ucolabs",
+            "email": "hello@ucolabs.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Admin\\": "admin/",
+            "Libs\\": "application/libs/",
+            "Models\\": "application/models/",
+            "Utils\\": "application/utils/"
+        }
+    },
+    "require": {
+        "predis/predis" : "~1.1",
+        "peppeocchi/php-cron-scheduler": "3.*"
+    }
+}
