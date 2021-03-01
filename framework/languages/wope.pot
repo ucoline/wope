@@ -1,0 +1,99 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Wope - Starter theme for wordpress\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-01 13:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.1; wp-5.6.2\n"
+"X-Domain: wope"
+
+#: 404.php:9
+msgid "404 Error"
+msgstr ""
+
+#: header.php:27
+msgid "An error occurred while processing your request! Please try again."
+msgstr ""
+
+#: application/ajax/form.php:39
+msgid "Contact Message"
+msgstr ""
+
+#. Name of the template
+msgid "Contacts"
+msgstr ""
+
+#: application/setup/menus.php:14
+msgid "Footer Menu"
+msgstr ""
+
+#: application/setup/menus.php:13
+msgid "Header Menu"
+msgstr ""
+
+#. URI of the theme
+#. Author URI of the theme
+msgid "https://www.ucoline.com/"
+msgstr ""
+
+#: application/ajax/form.php:32
+msgid "Please confirm google captcha."
+msgstr ""
+
+#: application/ajax/form.php:30
+msgid "Please enter a message."
+msgstr ""
+
+#: application/ajax/form.php:24
+msgid "Please enter a subject."
+msgstr ""
+
+#: application/ajax/form.php:28
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: application/ajax/form.php:26
+msgid "Please enter your email address."
+msgstr ""
+
+#: application/ajax/form.php:22
+msgid "Please enter your full name."
+msgstr ""
+
+#: application/ajax/form.php:59
+msgid "Robot verification failed, please try again."
+msgstr ""
+
+#. Description of the theme
+msgid "Starter theme for wordpress"
+msgstr ""
+
+#: 404.php:10
+msgid "The page you are looking for does not exist!"
+msgstr ""
+
+#: application/admin/theme-panel/init.php:9
+msgid "Theme settings"
+msgstr ""
+
+#. Author of the theme
+msgid "Ucoline "
+msgstr ""
+
+#. Name of the theme
+msgid "Wope - Starter theme for wordpress"
+msgstr ""
+
+#: application/ajax/form.php:56
+msgid ""
+"Your message has been sent. We will get back to you as soon as possible."
+msgstr ""

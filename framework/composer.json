@@ -1,0 +1,29 @@
+{
+    "name": "ucoline/wope",
+    "version": "1.0.5",
+    "description": "Wope - Modern Wordpress Starter Theme",
+    "type": "wordpress-theme",
+    "keywords": ["wordpress", "theme", "starter theme", "wope"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ucoline",
+            "email": "hello@ucoline.com",
+            "homepage": "https://www.ucoline.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Admin\\": "../application/admin/",
+            "Libs\\": "libs/",
+            "Models\\": "../application/models/",
+            "Utils\\": "utils/"
+        }
+    },
+    "require": {
+        "php": ">=5.5",
+        "composer/installers": "^1.4",
+        "predis/predis" : "~1.1",
+        "peppeocchi/php-cron-scheduler": "3.*"
+    }
+}

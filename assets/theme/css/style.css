@@ -1,0 +1,104 @@
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: normal;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+body,
+.container {
+  min-width: 320px;
+}
+
+a,
+a:focus,
+a:hover {
+  text-decoration: none;
+  outline: none;
+}
+
+button,
+.btn,
+.pointer {
+  cursor: pointer;
+}
+
+input,
+input:focus,
+input:active,
+select,
+select:focus,
+select:active,
+textarea,
+textarea:focus,
+textarea:active,
+button,
+button:focus,
+button:active {
+  outline: none;
+}
+
+input::-ms-clear,
+::-ms-clear {
+  display: none;
+}
+
+textarea:required,
+input:required {
+  box-shadow: none;
+}
+
+input:invalid,
+textarea:invalid {
+  box-shadow: none;
+}
+
+.flexbox {
+  display: flex;
+  display: -ms-flexbox;
+}
+
+.trs-05 {
+  -webkit-transition: all ease-in 0.05s;
+  -moz-transition: all ease-in 0.05s;
+  transition: all ease-in 0.05s;
+}
+
+a,
+img,
+input,
+button,
+.trs-1 {
+  -webkit-transition: all ease-in 0.1s;
+  -moz-transition: all ease-in 0.1s;
+  transition: all ease-in 0.1s;
+}
+
+.trs-2 {
+  -webkit-transition: all ease-in 0.2s;
+  -moz-transition: all ease-in 0.2s;
+  transition: all ease-in 0.2s;
+}
+
+.trs-3 {
+  -webkit-transition: all ease-in 0.3s;
+  -moz-transition: all ease-in 0.3s;
+  transition: all ease-in 0.3s;
+}
+
+.trs-4 {
+  -webkit-transition: all ease-in 0.4s;
+  -moz-transition: all ease-in 0.4s;
+  transition: all ease-in 0.4s;
+}
+
+.trs-5 {
+  -webkit-transition: all ease-in 0.5s;
+  -moz-transition: all ease-in 0.5s;
+  transition: all ease-in 0.5s;
+}

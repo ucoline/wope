@@ -14,8 +14,8 @@
 
 ## Features & Documentation
 
-[Full documentation](https://github.com/ucolabs/wope/wiki/01.-Home)
+[Full documentation](https://github.com/ucoline/wope/wiki/01.-Home)
 
-[Overview](https://github.com/ucolabs/wope/wiki/02.-Overview)
+[Overview](https://github.com/ucoline/wope/wiki/02.-Overview)
 
-[Installation](https://github.com/ucolabs/wope/wiki/03.-Installation)
+[Installation](https://github.com/ucoline/wope/wiki/03.-Installation)
