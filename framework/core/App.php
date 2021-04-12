@@ -11,20 +11,6 @@
 
 class App
 {
-    // Page links
-    public static function page_link($type)
-    {
-        $pages = array(
-            'about' => 1,
-            'services' => 2,
-            'contacts' => 3,
-        );
-
-        if (isset($pages[$type])) {
-            return get_the_permalink($pages[$type]);
-        }
-    }
-
     // Template router
     public static function template_router()
     {
@@ -35,7 +21,7 @@ class App
         $object_type = queried_object_type($object);
 
         if ($object_type == 'product') {
-            return templates_path('product-sinle.php');
+            return templates_path('product-single.php');
         }
     }
 

@@ -9,7 +9,7 @@
 </style>
 
 <div class="wrap">
-    <h1>Site settings</h1>
+    <h1><?= _e('Theme settings', 'wope'); ?></h1>
     <form method="post" action="options.php">
         <?php
         settings_fields("section");

@@ -1,8 +1,6 @@
 <?php
 // Add assets files
 add_action('admin_enqueue_scripts', function () {
-    wp_localize_script('admin-scripts', 'site_url', home_url('/'));
-    wp_localize_script('admin-scripts', 'action_url', admin_url('admin-ajax.php'));
     wp_enqueue_media();
     wp_enqueue_script('admin-scripts', admin_folder_url('assets/admin-scripts.js'), false, '5.3.0');
 });
@@ -15,7 +13,7 @@ add_action('init', function () {
 // Post image column
 function add_img_column_posts($columns)
 {
-    $columns = array_slice($columns, 0, 2, true) + array("img" => 'Image') + array_slice($columns, 1, count($columns) - 1, true);
+    $columns = array_slice($columns, 0, 2, true) + array("img" => __('Image', 'wope')) + array_slice($columns, 1, count($columns) - 1, true);
     return $columns;
 }
 

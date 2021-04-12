@@ -45,12 +45,12 @@ function admin_theme_panel_option_element($args)
     } elseif ($type == 'gallery') {
         echo '<div class="select-gallery-box">';
         echo '<div class="select-gallery-box-in">';
-        echo '<input type="text" name="'. $id .'" class="select-gallery-input" id="'. $id .'" value="'. $option_value .'" '. $attrs .'>';
-        echo  '<button type="button" class="button button-primary btn-select-gallery">Görsel Seç</button>';
+        echo '<input type="text" name="' . $id . '" class="select-gallery-input" id="' . $id . '" value="' . $option_value . '" ' . $attrs . '>';
+        echo  '<button type="button" class="button button-primary btn-select-gallery">' . __('Select image', 'wope') . '</button>';
         echo '</div>';
         echo '<div class="select-gallery-box-img">';
         if (is_string($option_value) && !empty($option_value)) {
-            echo '<img src="'. $option_value .'" alt="image" />';
+            echo '<img src="' . $option_value . '" alt="image" />';
         }
         echo '</div>';
         echo '</div>';
