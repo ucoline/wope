@@ -5,8 +5,8 @@ function form_notify($type = 'error', $array = array())
     $output = [
         'error' => true,
         'success' => false,
-        'title' => lexicon('error'),
-        'msg' => lexicon('ajax_error_msg'),
+        'title' => __('Error', 'wope'),
+        'msg' => __('An error occurred while processing your request. Please try again.', 'wope'),
         'notify' => 'notify-error',
         'icon' => 'fa fa-exclamation-circle'
     ];
@@ -15,7 +15,7 @@ function form_notify($type = 'error', $array = array())
         $output = [
             'error' => false,
             'success' => true,
-            'title' => lexicon('notification'),
+            'title' => __('Success', 'wope'),
             'msg' => '',
             'notify' => 'notify-success',
             'icon' => 'fa fa-check-circle'
@@ -36,33 +36,6 @@ function form_notify($type = 'error', $array = array())
 
     if (isset($array['icon'])) {
         $output['icon'] = $array['icon'];
-    }
-
-    return $output;
-}
-
-// Lexicon
-function lexicon($key, $lang = false)
-{
-    $output = '';
-    $language = 'en';
-    $folder = APP_PATH .'lexicon'. DS;
-
-    if (!$lang) {
-        $language = Container::$current_lang;
-    } else {
-        $language = $lang;
-    }
-
-    // Get file
-    $file = $folder . $language . '.php';
-
-    if (isset($file)) {
-        $array = include $file;
-
-        if (isset($array[$key])) {
-            $output = $array[$key];
-        }
     }
 
     return $output;

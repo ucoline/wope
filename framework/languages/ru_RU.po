@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Wope - Starter theme for wordpress\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-01 13:48+0000\n"
-"PO-Revision-Date: 2021-03-01 13:56+0000\n"
+"PO-Revision-Date: 2021-04-12 16:26+0000\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -26,6 +26,10 @@ msgstr ""
 "Произошла ошибка при обработке вашего запроса! Пожалуйста, попробуйте еще "
 "раз."
 
+#: application/admin/theme-panel/init.php:20
+msgid "Company address"
+msgstr "Адрес компании"
+
 #: application/ajax/form.php:39
 msgid "Contact Message"
 msgstr "Контактное сообщение"
@@ -34,9 +38,21 @@ msgstr "Контактное сообщение"
 msgid "Contacts"
 msgstr "Контакты"
 
+#: application/admin/theme-panel/init.php:19
+msgid "Email address"
+msgstr "Адрес электронной почты"
+
+#: application/admin/theme-panel/init.php:18
+msgid "Fax number"
+msgstr "Номер факса"
+
 #: application/setup/menus.php:14
 msgid "Footer Menu"
 msgstr "Меню Footer"
+
+#: application/admin/theme-panel/init.php:21
+msgid "Google map"
+msgstr "Google map"
 
 #: application/setup/menus.php:13
 msgid "Header Menu"
@@ -46,6 +62,18 @@ msgstr "Меню Header"
 #. Author URI of the theme
 msgid "https://www.ucoline.com/"
 msgstr "https://www.ucoline.com/"
+
+#: application/admin/filters.php:16
+msgid "Image"
+msgstr "Изображение"
+
+#: application/admin/theme-panel/init.php:17
+msgid "Mobile number"
+msgstr "Номер мобильного"
+
+#: application/admin/theme-panel/init.php:16
+msgid "Phone number"
+msgstr "Телефонный номер"
 
 #: application/ajax/form.php:32
 msgid "Please confirm google captcha."
@@ -75,6 +103,10 @@ msgstr "Пожалуйста, введите ваше полное имя."
 msgid "Robot verification failed, please try again."
 msgstr "Ошибка проверки робота, попробуйте еще раз."
 
+#: application/admin/functions.php:49
+msgid "Select image"
+msgstr "Выбрать изображение"
+
 #. Description of the theme
 msgid "Starter theme for wordpress"
 msgstr "Стартовая тема для wordpress"
@@ -84,6 +116,7 @@ msgid "The page you are looking for does not exist!"
 msgstr "Страница, которую вы ищете, не существует!"
 
 #: application/admin/theme-panel/init.php:9
+#: application/admin/theme-panel/view.php:12
 msgid "Theme settings"
 msgstr "Настройки темы"
 

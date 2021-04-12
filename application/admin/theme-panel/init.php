@@ -11,7 +11,7 @@ add_action("admin_menu", function () {
 
 // Contacts
 add_action("admin_init", function () {
-    add_settings_section("section-contacts", "Contacts", null, "theme-options");
+    add_settings_section("section-contacts", __("Contacts", "wope"), null, "theme-options");
 
     add_settings_field("phone_number", __("Phone number", "wope"), "admin_theme_panel_option_element", "theme-options", "section-contacts", ['type' => 'input', 'id' => 'phone_number']);
     add_settings_field("mobile_number", __("Mobile number", "wope"), "admin_theme_panel_option_element", "theme-options", "section-contacts", ['type' => 'input', 'id' => 'mobile_number']);
@@ -30,7 +30,7 @@ add_action("admin_init", function () {
 
 // Social media
 add_action("admin_init", function () {
-    add_settings_section("section-xsocials", "Social media", null, "theme-options");
+    add_settings_section("section-xsocials", __("Social media", "wope"), null, "theme-options");
 
     add_settings_field("facebook_url", "Facebook", "admin_theme_panel_option_element", "theme-options", "section-xsocials", ['type' => 'input', 'id' => 'facebook_url']);
     add_settings_field("instagram_url", "Instagram", "admin_theme_panel_option_element", "theme-options", "section-xsocials", ['type' => 'input', 'id' => 'instagram_url']);

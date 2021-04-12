@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wope - Starter theme for wordpress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-01 13:51+0000\n"
+"POT-Creation-Date: 2021-04-12 16:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.5.1; wp-5.6.2\n"
+"X-Loco-Version: 2.5.2; wp-5.7\n"
 "X-Domain: wope"
 
 #: 404.php:9
@@ -24,6 +24,10 @@ msgstr ""
 msgid "An error occurred while processing your request! Please try again."
 msgstr ""
 
+#: application/admin/theme-panel/init.php:20
+msgid "Company address"
+msgstr ""
+
 #: application/ajax/form.php:39
 msgid "Contact Message"
 msgstr ""
@@ -32,8 +36,20 @@ msgstr ""
 msgid "Contacts"
 msgstr ""
 
+#: application/admin/theme-panel/init.php:19
+msgid "Email address"
+msgstr ""
+
+#: application/admin/theme-panel/init.php:18
+msgid "Fax number"
+msgstr ""
+
 #: application/setup/menus.php:14
 msgid "Footer Menu"
+msgstr ""
+
+#: application/admin/theme-panel/init.php:21
+msgid "Google map"
 msgstr ""
 
 #: application/setup/menus.php:13
@@ -43,6 +59,18 @@ msgstr ""
 #. URI of the theme
 #. Author URI of the theme
 msgid "https://www.ucoline.com/"
+msgstr ""
+
+#: application/admin/filters.php:16
+msgid "Image"
+msgstr ""
+
+#: application/admin/theme-panel/init.php:17
+msgid "Mobile number"
+msgstr ""
+
+#: application/admin/theme-panel/init.php:16
+msgid "Phone number"
 msgstr ""
 
 #: application/ajax/form.php:32
@@ -73,6 +101,10 @@ msgstr ""
 msgid "Robot verification failed, please try again."
 msgstr ""
 
+#: application/admin/functions.php:49
+msgid "Select image"
+msgstr ""
+
 #. Description of the theme
 msgid "Starter theme for wordpress"
 msgstr ""
@@ -82,6 +114,7 @@ msgid "The page you are looking for does not exist!"
 msgstr ""
 
 #: application/admin/theme-panel/init.php:9
+#: application/admin/theme-panel/view.php:12
 msgid "Theme settings"
 msgstr ""
 
