@@ -11,7 +11,7 @@
 - [PHP](http://php.net/) >= 5.5
 - [WordPress](https://wordpress.org/) >= 4.7
 - [Composer](https://getcomposer.org/)
-- [Advanced Custom Fields] (https://wordpress.org/plugins/advanced-custom-fields/)
+- [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/)
 
 ## Features & Documentation
 
