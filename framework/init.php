@@ -43,7 +43,6 @@ add_action('template_redirect', function () {
     $status = session_status();
 
     if (PHP_SESSION_DISABLED === $status) {
-        // That's why you cannot rely on sessions!
         return;
     }
 

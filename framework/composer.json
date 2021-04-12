@@ -1,6 +1,6 @@
 {
     "name": "ucoline/wope",
-    "version": "1.0.5",
+    "version": "1.0.0",
     "description": "Wope - Modern Wordpress Starter Theme",
     "type": "wordpress-theme",
     "keywords": ["wordpress", "theme", "starter theme", "wope"],
@@ -9,7 +9,7 @@
         {
             "name": "Ucoline",
             "email": "hello@ucoline.com",
-            "homepage": "https://www.ucoline.com"
+            "homepage": "https://www.ucoline.com/"
         }
     ],
     "autoload": {
