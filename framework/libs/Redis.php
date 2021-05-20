@@ -57,6 +57,16 @@ class Redis
         }
     }
 
+    public static function keys($key)
+    {
+        if (self::is_active()) {
+            $redis_key = self::prefix($key, true);
+
+            $client = self::connect();
+            return $client->keys($redis_key);
+        }
+    }
+
     public static function get($key)
     {
         if (self::is_active()) {
@@ -129,7 +139,26 @@ class Redis
         }
     }
 
-    public static function get_the_title($key, $expire = 86400)
+    public static function crypt($action, $string)
+    {
+        $output = false;
+        $encrypt_method = "AES-256-CBC";
+        $secret_key = \App::config('secret_key', 'hgeUehJdgw82kghdu2kdj38hd3hdlHs38Ldh38sl');
+        $secret_iv = \App::config('secret_iv', 'kGy3ldh39LLd393Ldh3LdKMbsy3zmdsJksLei83dj');
+        $key = hash('sha256', $secret_key);
+        $iv = substr(hash('sha256', $secret_iv), 0, 16);
+
+        if ($action == 'encrypt') {
+            $output = openssl_encrypt($string, $encrypt_method, $key, 0, $iv);
+            $output = base64_encode($output);
+        } elseif ($action == 'decrypt') {
+            $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
+        }
+
+        return $output;
+    }
+
+    public static function get_the_title($key, $expire = 0)
     {
         $is_active = self::is_active();
 
@@ -139,14 +168,16 @@ class Redis
             $cache = $client->get($redis_key);
 
             if ($cache && is_string($cache)) {
-                return $cache;
+                $hash = self::crypt('decrypt', $cache);
+                return $hash;
             }
         }
 
         $value = get_the_title($key);
 
         if ($value && $is_active) {
-            $client->set($redis_key, $value);
+            $hash = self::crypt('encrypt', $value);
+            $client->set($redis_key, $hash);
 
             if (is_numeric($expire) && $expire > 0) {
                 $client->expire($redis_key, $expire);
@@ -156,7 +187,7 @@ class Redis
         return $value;
     }
 
-    public static function get_the_link($post, $expire = 86400)
+    public static function get_the_link($post, $expire = 0)
     {
         $is_active = self::is_active();
 
@@ -166,14 +197,16 @@ class Redis
             $cache = $client->get($redis_key);
 
             if ($cache && is_string($cache)) {
-                return $cache;
+                $hash = self::crypt('decrypt', $cache);
+                return $hash;
             }
         }
 
         $value = get_the_permalink($post);
 
         if ($value && $is_active) {
-            $client->set($redis_key, $value);
+            $hash = self::crypt('encrypt', $value);
+            $client->set($redis_key, $hash);
 
             if (is_numeric($expire) && $expire > 0) {
                 $client->expire($redis_key, $expire);
@@ -183,7 +216,7 @@ class Redis
         return $value;
     }
 
-    public static function get_blog_info($key, $expire = 86400)
+    public static function get_blog_info($key, $expire = 0)
     {
         $is_active = self::is_active();
 
@@ -193,14 +226,16 @@ class Redis
             $cache = $client->get($redis_key);
 
             if ($cache && is_string($cache)) {
-                return $cache;
+                $hash = self::crypt('decrypt', $cache);
+                return $hash;
             }
         }
 
         $value = get_bloginfo($key);
 
         if ($value && $is_active) {
-            $client->set($redis_key, $value);
+            $hash = self::crypt('encrypt', $value);
+            $client->set($redis_key, $hash);
 
             if (is_numeric($expire) && $expire > 0) {
                 $client->expire($redis_key, $expire);
@@ -210,7 +245,7 @@ class Redis
         return $value;
     }
 
-    public static function get_the_option($key, $expire = 86400)
+    public static function get_the_option($key, $expire = 0)
     {
         $is_active = self::is_active();
 
@@ -220,14 +255,16 @@ class Redis
             $cache = $client->get($redis_key);
 
             if ($cache && is_string($cache)) {
-                return $cache;
+                $hash = self::crypt('decrypt', $cache);
+                return $hash;
             }
         }
 
         $value = get_option($key);
 
         if ($value && $is_active) {
-            $client->set($redis_key, $value);
+            $hash = self::crypt('encrypt', $value);
+            $client->set($redis_key, $hash);
 
             if (is_numeric($expire) && $expire > 0) {
                 $client->expire($redis_key, $expire);
@@ -237,7 +274,7 @@ class Redis
         return $value;
     }
 
-    public static function get_menu($key, $args, $expire = 86400)
+    public static function get_menu($key, $args, $expire = 0)
     {
         $is_active = self::is_active();
 
@@ -247,7 +284,8 @@ class Redis
             $cache = $client->get($redis_key);
 
             if ($cache && is_string($cache)) {
-                echo $cache;
+                $hash = self::crypt('decrypt', $cache);
+                echo $hash;
                 return;
             }
         }
@@ -259,7 +297,8 @@ class Redis
                 $wp_nav_menu = ob_get_clean();
 
                 if ($wp_nav_menu) {
-                    $client->set($redis_key, $wp_nav_menu);
+                    $hash = self::crypt('encrypt', $wp_nav_menu);
+                    $client->set($redis_key, $hash);
 
                     if (is_numeric($expire) && $expire > 0) {
                         $client->expire($redis_key, $expire);
@@ -273,7 +312,7 @@ class Redis
         }
     }
 
-    public static function get_field($selector, $post_id, $expire = 86400)
+    public static function get_field($selector, $post_id, $expire = 0)
     {
         $is_active = self::is_active();
 
@@ -283,7 +322,8 @@ class Redis
             $cache = $client->get($redis_key);
 
             if ($cache && !is_null($cache)) {
-                return unserialize($cache);
+                $hash = self::crypt('decrypt', $cache);
+                return unserialize($hash);
             }
         }
 
@@ -291,7 +331,8 @@ class Redis
         $data = serialize($value);
 
         if ($data && $is_active) {
-            $client->set($redis_key, $data);
+            $hash = self::crypt('encrypt', $data);
+            $client->set($redis_key, $hash);
 
             if (is_numeric($expire) && $expire > 0) {
                 $client->expire($redis_key, $expire);
@@ -301,7 +342,7 @@ class Redis
         return $value;
     }
 
-    public static function get_the_category($post_id, $expire = 86400)
+    public static function get_the_category($post_id, $expire = 0)
     {
         $is_active = self::is_active();
 
@@ -311,14 +352,17 @@ class Redis
             $cache = $client->get($redis_key);
 
             if ($cache && !is_null($cache)) {
-                return unserialize($cache);
+                $hash = self::crypt('decrypt', $cache);
+                return unserialize($hash);
             }
         }
 
         $categories = get_the_category($post_id);
 
         if ($categories && $is_active) {
-            $client->set($redis_key, serialize($categories));
+            $data = serialize($categories);
+            $hash = self::crypt('encrypt', $data);
+            $client->set($redis_key, $hash);
 
             if (is_numeric($expire) && $expire > 0) {
                 $client->expire($redis_key, $expire);
@@ -328,7 +372,7 @@ class Redis
         return $categories;
     }
 
-    public static function get_the_tags($post_id, $expire = 86400)
+    public static function get_the_tags($post_id, $expire = 0)
     {
         $is_active = self::is_active();
 
@@ -338,14 +382,17 @@ class Redis
             $cache = $client->get($redis_key);
 
             if ($cache && !is_null($cache)) {
-                return unserialize($cache);
+                $hash = self::crypt('decrypt', $cache);
+                return unserialize($hash);
             }
         }
 
         $tags = get_the_tags($post_id);
 
         if ($tags && $is_active) {
-            $client->set($redis_key, serialize($tags));
+            $data = serialize($tags);
+            $hash = self::crypt('encrypt', $data);
+            $client->set($redis_key, $hash);
 
             if (is_numeric($expire) && $expire > 0) {
                 $client->expire($redis_key, $expire);
@@ -353,5 +400,45 @@ class Redis
         }
 
         return $tags;
+    }
+
+    public static function wp_query($command = 'set', $query_key = '', $result = null)
+    {
+        $prefix = "get-wp-query-sql-";
+        return self::cached_sql_queries($prefix, $command, $query_key, $result);
+    }
+
+    public static function cached_sql_queries($prefix, $command = 'set', $query_key = '', $result = null, $delete = 'multi')
+    {
+        if (is_string($prefix) && !empty($prefix)) {
+            $key = "{$prefix}{$query_key}";
+
+            if ($command == 'get') {
+                $cached_item = self::get($key);
+
+                if (!is_null($cached_item) && is_string($cached_item) && !empty($cached_item)) {
+                    $hash = self::crypt('decrypt', $cached_item);
+                    return unserialize($hash);
+                }
+            } elseif ($command == 'set' && !is_null($result)) {
+                $serialize = serialize($result);
+                $hash = self::crypt('encrypt', $serialize);
+                self::set($key, $hash);
+            } elseif ($command == 'delete') {
+                if ($delete == 'single') {
+                    self::delete($key);
+                } else {
+                    $cached_keys = self::keys($prefix . '*');
+    
+                    if ($cached_keys && is_array($cached_keys)) {
+                        foreach ($cached_keys as $cached_key) {
+                            self::delete($cached_key, false);
+                        }
+                    } elseif ($cached_keys && is_string($cached_keys)) {
+                        self::delete($cached_keys, false);
+                    }
+                }
+            }
+        }
     }
 }

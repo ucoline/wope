@@ -31,7 +31,7 @@ add_action("wp_enqueue_scripts", function () {
 add_action('after_setup_theme', function () {
     if (!is_admin()) {
         // Remove admin bar
-        add_filter('show_admin_bar', '__return_false');
+        // add_filter('show_admin_bar', '__return_false');
 
         // Remove wp version
         add_filter('the_generator', '__return_empty_string');

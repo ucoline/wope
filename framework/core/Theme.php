@@ -86,4 +86,22 @@ class Theme
         $item = Redis::get_field($selector, $id);
         return $item ? $item : $defult;
     }
+
+    public static function WP_Query($args = array())
+    {
+        if (is_array($args) && $args) {
+            $args_key = serialize($args);
+            $sql_key = md5($args_key);
+            $cached_results = Redis::wp_query('get', $sql_key);
+            
+            if (!is_null($cached_results)) {
+                return $cached_results;
+            } else {
+                $query = new \WP_Query($args);
+                Redis::wp_query('set', $sql_key, $query);
+            }
+        }
+
+        return new \WP_Query($args);
+    }
 }

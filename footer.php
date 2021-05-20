@@ -1,3 +1,4 @@
+<?php wp_footer(); ?>
 <?php wp_nonce_field('ajax-action-nonce', 'ajax_action'); ?>
 
 <script type="text/javascript">

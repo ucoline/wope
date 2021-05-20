@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom Menu
  *
@@ -21,7 +22,7 @@ class CustomMenu
     {
         // Get menu from redis
         $redis_menu = false;
-        $redis_key = "custom-menu-". $location;
+        $redis_key = "custom-menu-" . $location;
         $redis_json = Redis::get($redis_key);
 
         if (!is_null($redis_json) && !empty($redis_json)) {
@@ -68,8 +69,8 @@ class CustomMenu
 
         $this->deep = is_numeric($deep) ? $deep : 10;
 
-        $this->_menu_id = is_string($menu_id) ? $menu_id : 'menu-'. $this->location;
-        $this->_menu_class = is_string($menu_class) && $menu_class ? $menu_class : 'nav menu-'. $this->location;
+        $this->_menu_id = is_string($menu_id) ? $menu_id : 'menu-' . $this->location;
+        $this->_menu_class = is_string($menu_class) && $menu_class ? $menu_class : 'nav menu-' . $this->location;
 
         if ($tpl_path && is_dir(base_path($tpl_path))) {
             $this->path_name = trim($tpl_path, '/');
@@ -202,10 +203,10 @@ class CustomMenu
 
     private function outer_view($data = array(), $view = false)
     {
-        $filename_theme = "{$this->path_name}/outer.php";
+        $filename = "{$this->path_name}/outer";
 
-        if ($this->path && is_file(base_path($filename_theme))) {
-            return base_path($this->path_name . '/outer', $data, $view);
+        if ($this->path && is_file(base_path($filename . '.php'))) {
+            return get_view(base_path($filename), $data, $view);
         } else {
             return app_view('libs/custom-menu/outer', $data, $view);
         }
@@ -213,21 +214,21 @@ class CustomMenu
 
     private function item_view($level, $data = array())
     {
-        $app_file = "libs/custom-menu/item-{$level}.php";
+        $app_file = "libs/custom-menu/item-{$level}";
 
         if ($this->path) {
-            $theme_file = "{$this->path_name}/item.php";
-            $theme_file2 = "{$this->path_name}/item-{$level}.php";
+            $theme_file = "{$this->path_name}/item";
+            $theme_file2 = "{$this->path_name}/item-{$level}";
 
-            if (is_file(base_path($theme_file2))) {
-                return base_path($this->path_name . '/item-' . $level, $data, true);
-            } elseif (is_file(base_path($theme_file))) {
-                return base_path($this->path_name . '/item', $data, true);
+            if (is_file(base_path($theme_file2 . '.php'))) {
+                return get_view(base_path($theme_file2), $data, true);
+            } elseif (is_file(base_path($theme_file . '.php'))) {
+                return get_view(base_path($theme_file), $data, true);
             }
         }
 
-        if (is_file(app_path($app_file))) {
-            return app_view('libs/custom-menu/item-' . $level, $data, true);
+        if (is_file(app_path($app_file . '.php'))) {
+            return app_view($app_file, $data, true);
         } else {
             return app_view('libs/custom-menu/item', $data, true);
         }
@@ -235,21 +236,21 @@ class CustomMenu
 
     private function inner_view($level, $data = array())
     {
-        $app_file = "libs/custom-menu/inner-{$level}.php";
+        $app_file = "libs/custom-menu/inner-{$level}";
 
         if ($this->path) {
             $theme_file = "{$this->path_name}/inner.php";
             $theme_file2 = "{$this->path_name}/inner-{$level}.php";
 
-            if (is_file(base_path($theme_file2))) {
-                return base_path($this->path_name . '/inner-' . $level, $data, true);
-            } elseif (is_file(base_path($theme_file))) {
-                return base_path($this->path_name . '/inner', $data, true);
+            if (is_file(base_path($theme_file2 . '.php'))) {
+                return get_view(base_path($theme_file2), $data, true);
+            } elseif (is_file(base_path($theme_file . '.php'))) {
+                return get_view(base_path($theme_file), $data, true);
             }
         }
 
-        if (is_file(app_path($app_file))) {
-            return app_view('libs/custom-menu/inner-' . $level, $data, true);
+        if (is_file(app_path($app_file . '.php'))) {
+            return app_view($app_file, $data, true);
         } else {
             return app_view('libs/custom-menu/inner', $data, true);
         }
