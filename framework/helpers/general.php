@@ -51,6 +51,23 @@ function acf_block_render_callback($block)
     }
 }
 
+// Get acf image size url
+function get_acf_image_size_url($array, $size = 'thumbnail', $default = '')
+{
+    $output = $default;
+
+    if (is_array($array) && $array) {
+        $output = array_value($array, 'url');
+        $image_sizes = array_value($array, 'sizes');
+
+        if (isset($image_sizes[$size])) {
+            $output = $image_sizes[$size];
+        }
+    }
+
+    return $output;
+}
+
 // Get menu by location
 function get_menu($location, $args = array())
 {

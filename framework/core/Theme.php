@@ -77,31 +77,61 @@ class Theme
     // Returns the value of a specific acf field
     public static function get_field($selector, $post_id = false, $defult = false)
     {
-        if ($post_id) {
-            $id = $post_id;
-        } else {
-            $id = get_queried_object_id();
-        }
-
-        $item = Redis::get_field($selector, $id);
+        $item = Redis::get_field($selector, $post_id);
         return $item ? $item : $defult;
     }
 
+    // Returns the value of wp_query
     public static function WP_Query($args = array())
     {
-        if (is_array($args) && $args) {
-            $args_key = serialize($args);
-            $sql_key = md5($args_key);
-            $cached_results = Redis::wp_query('get', $sql_key);
-            
-            if (!is_null($cached_results)) {
-                return $cached_results;
-            } else {
-                $query = new \WP_Query($args);
-                Redis::wp_query('set', $sql_key, $query);
-            }
+        $output = array();
+        $args_key = serialize($args);
+        $sql_key = md5($args_key);
+        $cached_results = Redis::wp_query('get', $sql_key);
+
+        if (!is_null($cached_results)) {
+            return $cached_results;
+        } else {
+            $output = new \WP_Query($args);
+            Redis::wp_query('set', $sql_key, $output);
         }
 
-        return new \WP_Query($args);
+        return $output;
+    }
+
+    // Returns the value of get_terms
+    public static function get_terms($args = array())
+    {
+        $output = array();
+        $args_key = serialize($args);
+        $sql_key = md5($args_key);
+        $cached_results = Redis::get_terms('get', $sql_key);
+
+        if (!is_null($cached_results)) {
+            return $cached_results;
+        } else {
+            $output = get_terms($args);
+            Redis::get_terms('set', $sql_key, $output);
+        }
+
+        return $output;
+    }
+
+    // Returns the value of get_term_by
+    public static function get_term_by($field, $value, $taxonomy = '', $output = OBJECT, $filter = 'raw')
+    {
+        $output = array();
+        $args_key = serialize($field . '-' . $value . '-' . $taxonomy . '-' . $output . '-' . $filter);
+        $sql_key = md5($args_key);
+        $cached_results = Redis::get_term_by('get', $sql_key);
+
+        if (!is_null($cached_results)) {
+            return $cached_results;
+        } else {
+            $output = $category = get_term_by($field, $value, $taxonomy, $output, $filter);
+            Redis::get_term_by('set', $sql_key, $output);
+        }
+
+        return $output;
     }
 }

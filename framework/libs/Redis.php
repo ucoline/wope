@@ -316,9 +316,15 @@ class Redis
     {
         $is_active = self::is_active();
 
+        if (is_numeric($post_id)) {
+            $id = $post_id;
+        } else {
+            $id = get_queried_object_id();
+        }
+
         if ($is_active) {
             $client = self::connect();
-            $redis_key = self::prefix('get-post-meta-field-' . $selector . '-' . $post_id, true);
+            $redis_key = self::prefix('get-post-meta-field-' . $selector . '-' . $id, true);
             $cache = $client->get($redis_key);
 
             if ($cache && !is_null($cache)) {
@@ -408,6 +414,18 @@ class Redis
         return self::cached_sql_queries($prefix, $command, $query_key, $result);
     }
 
+    public static function get_terms($command = 'set', $query_key = '', $result = null)
+    {
+        $prefix = "get-wp-terms-sql-";
+        return self::cached_sql_queries($prefix, $command, $query_key, $result);
+    }
+
+    public static function get_term_by($command = 'set', $query_key = '', $result = null)
+    {
+        $prefix = "get-wp-terms-by-sql-";
+        return self::cached_sql_queries($prefix, $command, $query_key, $result);
+    }
+
     public static function cached_sql_queries($prefix, $command = 'set', $query_key = '', $result = null, $delete = 'multi')
     {
         if (is_string($prefix) && !empty($prefix)) {
@@ -429,7 +447,7 @@ class Redis
                     self::delete($key);
                 } else {
                     $cached_keys = self::keys($prefix . '*');
-    
+
                     if ($cached_keys && is_array($cached_keys)) {
                         foreach ($cached_keys as $cached_key) {
                             self::delete($cached_key, false);
