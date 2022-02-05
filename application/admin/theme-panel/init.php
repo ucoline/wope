@@ -16,6 +16,9 @@ add_action("admin_init", function () {
     add_settings_field("phone_number", __("Phone number", "wope"), "admin_theme_panel_option_element", "theme-options", "section-contacts", ['type' => 'input', 'id' => 'phone_number']);
     add_settings_field("mobile_number", __("Mobile number", "wope"), "admin_theme_panel_option_element", "theme-options", "section-contacts", ['type' => 'input', 'id' => 'mobile_number']);
     add_settings_field("fax_number", __("Fax number", "wope"), "admin_theme_panel_option_element", "theme-options", "section-contacts", ['type' => 'input', 'id' => 'fax_number']);
+    add_settings_field("whatsapp_number", __("Whatsapp number", "wope"), "admin_theme_panel_option_element", "theme-options", "section-contacts", ['type' => 'input', 'id' => 'whatsapp_number']);
+    add_settings_field("telegram_number", __("Telegram number", "wope"), "admin_theme_panel_option_element", "theme-options", "section-contacts", ['type' => 'input', 'id' => 'telegram_number']);
+    add_settings_field("telegram_username", __("Telegram username", "wope"), "admin_theme_panel_option_element", "theme-options", "section-contacts", ['type' => 'input', 'id' => 'telegram_username']);
     add_settings_field("email_address", __("Email address", "wope"), "admin_theme_panel_option_element", "theme-options", "section-contacts", ['type' => 'input', 'id' => 'email_address']);
     add_settings_field("address", __("Company address", "wope"), "admin_theme_panel_option_element", "theme-options", "section-contacts", ['type' => 'input', 'id' => 'address']);
     add_settings_field("google_map", __("Google map", "wope"), "admin_theme_panel_option_element", "theme-options", "section-contacts", ['type' => 'textarea', 'id' => 'google_map', 'attrs' => 'rows="4"']);
@@ -23,6 +26,9 @@ add_action("admin_init", function () {
     register_setting("section", "phone_number");
     register_setting("section", "mobile_number");
     register_setting("section", "fax_number");
+    register_setting("section", "whatsapp_number");
+    register_setting("section", "telegram_number");
+    register_setting("section", "telegram_username");
     register_setting("section", "email_address");
     register_setting("section", "address");
     register_setting("section", "google_map");

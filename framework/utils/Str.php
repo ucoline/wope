@@ -136,4 +136,34 @@ class Str
             return $estimated_time;
         }
     }
+
+    // Strip words
+    public static function strip_words($content, $limit = 40, $button = 'Read more...')
+    {
+        $content = strip_tags($content);
+        $content = trim($content);
+
+        if ($content) {
+            $output = '';
+            $array = explode(' ', $content);
+
+            if (count($array) > $limit) {
+                $i = 0;
+
+                foreach ($array as $item) {
+                    if ($i <= $limit) {
+                        $output .= $item . ' ';
+                    }
+                    $i++;
+                }
+
+                $output = trim($output);
+                $output = $output . '... ' . $button;
+
+                return $output;
+            }
+        }
+
+        return $content;
+    }
 }

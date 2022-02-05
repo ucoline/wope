@@ -318,6 +318,8 @@ class Redis
 
         if (is_numeric($post_id)) {
             $id = $post_id;
+        } elseif (is_string($post_id)) {
+            $id = preg_replace('/\D/', '', $post_id);
         } else {
             $id = get_queried_object_id();
         }
